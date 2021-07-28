@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+}),
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -7,6 +11,15 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: process.env.GATSBY_API_URL,
+        queryLimit: 1000, // Defaults to 100
+        collectionTypes: [`article`],
+        // singleTypes: [`home-page`, `contact`],
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
