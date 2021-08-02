@@ -16,7 +16,7 @@ module.exports = {
       options: {
         apiURL: process.env.GATSBY_API_URL,
         queryLimit: 1000, // Defaults to 100
-        collectionTypes: [`article`],
+        collectionTypes: [`article`, `category`, `subcategory`],
         // singleTypes: [`home-page`, `contact`],
       },
     },
